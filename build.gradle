@@ -6,12 +6,13 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 
 mainClassName = 'Application'
 
 dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
     testImplementation "junit:junit:4.12"
 }
 
