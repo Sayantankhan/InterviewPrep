@@ -68,7 +68,7 @@ public class MergeTwoSortedLists {
         priorityQueue.add(new Tuple(1, 0, l2.get(0)));
 
         // O(m*n log2)
-        while (!priorityQueue.isEmpty()) { // m*n
+        while (!priorityQueue.isEmpty()) { // m+n
             Tuple t = priorityQueue.poll(); // poll O(1) -- Heapify O(log2)
             list.add(t.val);
             Tuple temp = null;
