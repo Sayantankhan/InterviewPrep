@@ -11,7 +11,6 @@ public class ThreeSum {
     public static List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> lists = new HashSet<>();
         Arrays.sort(nums);
-
         for(int i = 0; i <  nums.length-1; i++) {
             int j = i + 1;
             int end = nums.length - 1;
