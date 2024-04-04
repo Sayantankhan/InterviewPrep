@@ -28,6 +28,7 @@ public class MajorityElement {
         int el = ints[0];
         int count = 1;
 
+        // this algo says ,IFF there is any element exist that more than N/2 that will be el
         for (int i = 1; i < ints.length; i++) {
             if (el == ints[i]) {
                 count ++;
@@ -41,6 +42,18 @@ public class MajorityElement {
                 count = 1;
             }
         }
-        return el;
+
+        // to verify the result
+        count = 0;
+        for (int i = 0; i < ints.length; i++) {
+            if(ints[i] == el) {
+                count ++ ;
+            }
+        }
+
+        if ( count > ints.length/2) {
+            return el;
+        }
+        return -1;
     }
 }
