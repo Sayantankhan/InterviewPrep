@@ -10,6 +10,7 @@ import java.util.List;
 public class LongestIncreasingSubsequence {
 
     /*
+     *
      * Approach : The idea is  if we find a number that is greater than the current number then we are good to add,
      * if we are getting an integer that is smaller than the last one in the array, then find a suitable position ( binary search ), and put it there
      * cause even if with that new sequence we are not getting the greater sequence, still the array holds the older one, in question they asked
