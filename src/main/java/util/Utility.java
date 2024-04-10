@@ -1,7 +1,10 @@
 package util;
 
+import org.apache.commons.io.FileUtils;
 import tree.TreeNode;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,7 +19,15 @@ public class Utility {
         if(!Arrays.equals(actual, expected)) throw new Exception("Actual: "+actual+" Expected: "+expected);
     }
 
-    public static TreeNode generateBinartTreeFromArray(Integer[] integers) {
+    public static String readFile(String filePath) throws Exception {
+        final File file = FileUtils.getFile("./src/main/resources/leetcode2207_input.txt");
+        if (!file.exists()) throw new FileNotFoundException("File Not Found");
+        final InputStream inputStream =
+                new DataInputStream(new FileInputStream(file));
+        return new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+    }
+
+     public static TreeNode generateBinartTreeFromArray(Integer[] integers) {
         Queue<TreeNode> queue = new LinkedList<>();
 
         int height = 0;
