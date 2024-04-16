@@ -1,2 +1,4 @@
-package company;public class Google_AllocateMinimumNumberOfPages {
+package company;
+
+public class Google_AllocateMinimumNumberOfPages {
 }
