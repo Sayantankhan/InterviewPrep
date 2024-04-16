@@ -11,16 +11,12 @@ import util.Utility;
  * to construct a complex object step by step || Ex: Lombok
  */
 public class Build {
-
     private String a;
     private int b;
-
     static Builder builder() {
         return new Builder();
     }
-
     static class Builder {
-
         private Build build = null;
         Builder() {
             build = new Build();

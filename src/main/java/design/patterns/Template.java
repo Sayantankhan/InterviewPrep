@@ -1,2 +1,4 @@
-package design.patterns;public class Template {
+package design.patterns;
+
+public class Template {
 }

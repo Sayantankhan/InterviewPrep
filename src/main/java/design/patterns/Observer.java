@@ -1,2 +1,4 @@
-package design.patterns;public class Observer {
+package design.patterns;
+
+public class Observer {
 }
