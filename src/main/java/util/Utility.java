@@ -5,9 +5,7 @@ import tree.TreeNode;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Utility {
 
@@ -16,8 +14,30 @@ public class Utility {
         if(!actual.equals(expected)) throw new Exception("Actual: "+actual+" Expected: "+expected);
     }
 
+    public static void assertHardTrue(List actual, List expected) throws Exception {
+        if(!actual.equals(expected)) throw new Exception("Actual: "+actual+" Expected: "+expected);
+    }
+
+    public static void assertTrue(List actual, List expected) throws Exception {
+        if(actual.size() != expected.size()) throw new Exception("Actual: "+actual+" Expected: "+expected);
+        if(actual.isEmpty() && expected.isEmpty()) return;
+        boolean res = true;
+        Optional ans = actual.stream().map(x -> res && expected.contains(x)).reduce((val1, val2) -> (Boolean)val1 && (Boolean)val2);
+
+        if(!ans.isPresent()) {
+            throw new Exception("Actual: "+actual+" Expected: "+expected);
+        }
+
+    }
+
     public static void assertTrue(int[] actual, int[] expected) throws Exception {
-        if(!Arrays.equals(actual, expected)) throw new Exception("Actual: "+actual+" Expected: "+expected);
+        StringBuilder ac = new StringBuilder("");
+        StringBuilder ex = new StringBuilder("");
+
+        Arrays.stream(actual).forEach(x -> ac.append(x).append(","));
+        Arrays.stream(expected).forEach(x -> ex.append(x).append(","));
+
+        if(!Arrays.equals(actual, expected)) throw new Exception("Actual: ["+ ac.substring(0, ac.length()-1) +"] Expected: ["+ex.substring(0, ex.length()-1)+"]");
     }
 
     public static String readFile(String filePath) throws Exception {
