@@ -37,7 +37,6 @@ public class NumberofIslands {
         Queue<Tuple> queue = new LinkedList<>();
 
         queue.add(new Tuple(x, y));
-        queue.remove()
 
         int y_len = visited[0].length;
         int x_len = visited.length;
