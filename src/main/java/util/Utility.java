@@ -82,4 +82,14 @@ public class Utility {
 
         return root;
     }
+
+    public static TreeNode findTreeNode(TreeNode root, int val) {
+        if(root == null) return null;
+        if(root.val == val) return root;
+
+        TreeNode left = findTreeNode(root.left, val);
+        TreeNode right = findTreeNode(root.right, val);
+
+        return left != null ? left : right;
+    }
 }
