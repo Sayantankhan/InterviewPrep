@@ -80,6 +80,7 @@ public class FindKClosestElement {
 
         while(left <= right) {
             int mid = (left + right) / 2;
+
             if(x - arr[mid] > arr[mid + k] - x) {
                 left = mid + 1;
             } else {
@@ -107,6 +108,6 @@ public class FindKClosestElement {
                 1, 2), List.of(1));
 
         Utility.assertTrue(findClosestElements2(new int[]{0,1,1,1,2,3,6,7,8,9},
-                5, 4), List.of(1, 1, 2, 3, 5, 6));
+                5, 4), List.of(1, 1, 2, 3, 6));
     }
 }
