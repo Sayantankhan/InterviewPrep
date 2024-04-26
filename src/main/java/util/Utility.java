@@ -22,7 +22,7 @@ public class Utility {
         if(actual.size() != expected.size()) throw new Exception("Actual: "+actual+" Expected: "+expected);
         if(actual.isEmpty() && expected.isEmpty()) return;
         boolean res = true;
-        Optional ans = actual.stream().map(x -> res && expected.contains(x)).reduce((val1, val2) -> (Boolean)val1 && (Boolean)val2);
+        Optional ans = expected.stream().map(x -> res && actual.contains(x)).reduce((val1, val2) -> (Boolean)val1 && (Boolean)val2);
 
         if(!ans.isPresent()) {
             throw new Exception("Actual: "+actual+" Expected: "+expected);
