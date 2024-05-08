@@ -19,7 +19,7 @@ public class DecodeString {
                 }
 
                 stack.pop();
-                while(!stack.isEmpty() && (stack.peek() - '0') >= 0 && (stack.peek() - '0') <= 9) {
+                while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
                     timesOfRepeat = stack.pop() + timesOfRepeat;
                 }
 
