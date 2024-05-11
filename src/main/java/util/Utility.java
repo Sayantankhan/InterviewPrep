@@ -69,11 +69,12 @@ public class Utility {
                 queue.add(node.left);
             }
 
-
-            Integer right = integers[index+1];
-            if(right != null) {
-                node.right = new TreeNode(right);
-                queue.add(node.right);
+            if(index+1 < integers.length) {
+                Integer right = integers[index+1];
+                if(right != null) {
+                    node.right = new TreeNode(right);
+                    queue.add(node.right);
+                }
             }
 
             height++;
