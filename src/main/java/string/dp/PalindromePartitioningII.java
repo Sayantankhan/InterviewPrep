@@ -1,4 +1,4 @@
-package dp;
+package string.dp;
 
 import java.util.stream.IntStream;
 

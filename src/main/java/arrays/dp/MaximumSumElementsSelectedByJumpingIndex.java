@@ -1,4 +1,4 @@
-package arrays;
+package arrays.dp;
 
 // https://www.naukri.com/code360/library/maximize-the-sum-of-elements-arr-i-selected-by-jumping-index-by-value-i
 // maximize the sum of elements ARR[i] selected by jumping index by value i.

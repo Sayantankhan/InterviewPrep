@@ -1,4 +1,4 @@
-package arrays;
+package arrays.dp;
 
 import java.util.Arrays;
 import java.util.Deque;
