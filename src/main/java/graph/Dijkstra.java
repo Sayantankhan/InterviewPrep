@@ -46,7 +46,8 @@ public class Dijkstra {
     }
 
     static List<Integer> findMinPathBFS(ArrayList<Tuple>[] graph, ArrayList<Integer>[] path, int n, int source, int destination) {
-        PriorityQueue<Tuple> q = new PriorityQueue<>(Comparator.comparing(node -> node.station));
+        // PriorityQueue<Tuple> q = new PriorityQueue<>(Comparator.comparing(node -> node.station));
+        Queue<Tuple> q = new LinkedList<>();
 
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
