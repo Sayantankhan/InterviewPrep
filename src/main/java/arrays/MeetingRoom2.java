@@ -14,7 +14,7 @@ public class MeetingRoom2 {
     // each call to Heapify costs O(lg(n))
     // Build-Heap makes O(n)  such calls.
     // search = O(1)
-    
+
     //  O(n * lg(n))
     public int minMeetingRooms(int[][] intervals) {
         Arrays.sort(intervals, new Comparator<int[]>() {

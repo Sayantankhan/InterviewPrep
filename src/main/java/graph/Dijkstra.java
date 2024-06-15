@@ -10,6 +10,7 @@ public class Dijkstra {
         // |           | - 5
         // 2 - ---------t
         // Tuple -> (source, destination, weight)
+
         // int[][] routes = new int[][]{{0, 1, 1}, {0, 2, 1}, {1, 3, 1}, {2, 4, 1}, {3, 4, 1}, {4, 5, 1}};
         // int numberOfStation = 6;
 

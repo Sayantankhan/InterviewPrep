@@ -58,12 +58,44 @@ public class RemoveKDigits {
         return ans;
     }
 
+    public static String removeKdigits3(String num, int k) {
+
+        if(num.length() <= k) return "0";
+
+        Stack<Integer> stack = new Stack<Integer>();
+
+        for(int i = 0; i < num.length(); i++) {
+            while(!stack.isEmpty() &&
+                    stack.peek() > num.charAt(i) - '0' && k > 0) {
+
+                stack.pop();
+                k--;
+            }
+
+            stack.add(num.charAt(i) - '0');
+        }
+
+        StringBuilder sb = new StringBuilder("");
+        while(!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+
+
+        String s = sb.reverse().toString();
+        s = s.substring(0, s.length()-k);
+
+        int i = 0;
+        while(i < s.length() && s.charAt(i) == '0') {
+            i++;
+        }
+        s = s.substring(i, s.length());
+        if(s.equals("")) return "0";
+        return s.substring(i, s.length());
+    }
+
     public static void main(String[] args) {
-        System.out.println(removeKdigits2("1432219", 3));
-        min = Integer.MAX_VALUE;
-        System.out.println(removeKdigits2("10200", 1));
-        min = Integer.MAX_VALUE;
-        System.out.println(removeKdigits2("10", 2));
+
+        System.out.println(removeKdigits3("10200", 1));
     }
 
 }

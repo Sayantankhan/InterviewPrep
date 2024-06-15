@@ -4,7 +4,9 @@ import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import util.Utility;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -80,6 +82,29 @@ public class DistinctSubSequence {
         numDistinctDP("rabbbbbbbbbbbbbbbbbbbbbit", "rabbit"); // 760 ns/ops
 
         // Recursion is good for small String size, where dp perfoms better for large String size
+    }
+
+
+    Predicate<Integer> isEven = (number) -> (number % 2 == 0);
+    Predicate<Integer> isNotZero = (number) -> (number == 0);
+
+    @Benchmark
+    public void benchmarkWithMultipleFilters() {
+        List list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        list.stream()
+                .filter(x -> isEven.test((Integer) x))
+                .filter(x -> isNotZero.test((Integer) x))
+                .count();
+    }
+
+    @Benchmark
+    public void benchmarkWithOneFilters() {
+        List list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        list.stream()
+                .filter(x -> isEven.test((Integer) x) && isNotZero.test((Integer) x))
+                .count();
     }
 
     public static void main(String[] args) throws Exception {
