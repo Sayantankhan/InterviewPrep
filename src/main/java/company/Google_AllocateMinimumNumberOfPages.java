@@ -1,11 +1,15 @@
 package company;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 //https://www.interviewbit.com/problems/allocate-books/
 public class Google_AllocateMinimumNumberOfPages {
 
     static boolean isPossibleAllocation(int[] arr, int mid, int b) {
+        Deque<Integer> dq = new LinkedList();
+
         int current_student = 1;
         int temp = 0;
 
