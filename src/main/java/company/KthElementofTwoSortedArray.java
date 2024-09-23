@@ -1,5 +1,6 @@
 package company;
 
+// Kth element of Two Sorted Array
 public class KthElementofTwoSortedArray {
 
     public static long kthElement(int k, int arr1[], int arr2[]) {

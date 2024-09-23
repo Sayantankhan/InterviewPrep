@@ -3,6 +3,7 @@ package arrays;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+// CPU task scheduler
 public class CPUTaskScheduler {
 
     public static int cpuTaskScheduler(int n, int[][] arr)
