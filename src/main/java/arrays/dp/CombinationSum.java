@@ -37,6 +37,31 @@ public class CombinationSum {
         return ans;
     }
 
+    void combinationSum4Rec(int[] nums, int target, int index, int totalSum, Set set, List list) {
+        // Recursion approach :
+        // base case if index > nums.length || totalSum > target -> we return 0;
+        if(index >= nums.length || totalSum > target) return;
+        // base case totalSum == target ; count ++;
+        if(totalSum == target) {
+            set.add(new ArrayList<>(list));
+            return;
+        }
+
+        // this loop is for all the combination possible - [1 , 2 ,3] target 4
+        // 1 + 1 + 2
+        // 2 + 1 + 1
+        // 1 + 2 + 2
+        for(int j = 0; j < nums.length; j++) {
+            // we can either take the same number (total = total + nums[i])
+            list.add(nums[j]);
+            combinationSum4Rec(nums, target, j, totalSum + nums[j], set, list);
+            list.remove(list.size()-1);
+        }
+
+        // or we can go for the next index (total = total + nums[i+1])
+        combinationSum4Rec(nums, target, index+1, totalSum, set, list);
+    }
+
 
     static int combinationSum4DP(int[] nums, int target) {
         int[] dp = new int[target+1];
