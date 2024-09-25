@@ -3,7 +3,7 @@ package arrays.twopointers;
 import util.Utility;
 
 // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
-public class TwoSum {
+public class TwoSumOnSortedArray {
 
     public static int[] twoSum(int[] numbers, int target) {
         // As the array is sorted , we dont need to sort
