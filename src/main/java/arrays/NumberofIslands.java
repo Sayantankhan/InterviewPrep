@@ -57,6 +57,46 @@ public class NumberofIslands {
         }
     }
 
+    public static int numIslands2(char[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+
+        int count = 0;
+        boolean[][] visited = new boolean[n][m];
+        Queue<Tuple> queue = new LinkedList<Tuple>();
+
+        int x[] = {1, -1, 0, 0};
+        int y[] = {0, 0, 1, -1};
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++) {
+                if(!visited[i][j] && grid[i][j] == '1') {
+                    queue.offer(new Tuple(i, j));
+                    count++;
+                    while(!queue.isEmpty()) {
+
+                        Tuple t = queue.poll();
+                        visited[t.x][t.y] = true;
+
+                        for(int a = 0; a < x.length; a++) {
+
+                            if((t.x + x[a] >= 0 && t.x + x[a] < n)
+                                    && (t.y + y[a] >= 0 && t.y + y[a] < m)
+                                    && !visited[t.x+x[a]][t.y+y[a]]
+                                    && grid[t.x+x[a]][t.y+y[a]] == '1') {
+
+                                queue.offer(new Tuple(t.x+x[a],  t.y + y[a]));
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+
     public static void main(String[] args) throws Exception {
         char[][] grid = new char[][]{
                 {'1','1','1','1','0'},
@@ -72,6 +112,6 @@ public class NumberofIslands {
                 {'0','0','1','0','0'},
                 {'0','0','0','1','1'}
         };
-        Utility.assertTrue(numIslands(grid), 3);
+        Utility.assertTrue(numIslands2(grid), 3);
     }
 }

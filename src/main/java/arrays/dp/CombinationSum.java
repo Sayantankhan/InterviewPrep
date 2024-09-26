@@ -21,6 +21,7 @@ public class CombinationSum {
         // Recursion approach :
         // base case if index > nums.length || totalSum > target -> we return 0;
         if(index >= nums.length || totalSum > target) return 0;
+
         // base case totalSum == target ; count ++;
         if(totalSum == target) {
             return 1;
