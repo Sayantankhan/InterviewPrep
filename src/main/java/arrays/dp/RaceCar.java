@@ -54,6 +54,7 @@ public class RaceCar {
         }
     }
 
+    // space and time O(log target)
     public int racecarBFS(int target) {
         Queue<RCTuple> queue = new LinkedList<RCTuple>();
         RCTuple r = new RCTuple(0, 1, 0);
