@@ -3,10 +3,12 @@ package arrays;
 import util.Utility;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 //https://leetcode.com/problems/longest-increasing-subsequence/description/
+//Longest Increasing Subsequence
 public class LongestIncreasingSubsequence {
 
     /*
@@ -40,8 +42,13 @@ public class LongestIncreasingSubsequence {
         return list.size();
     }
 
+
+
     public static void main(String[] args) throws Exception {
         Utility.assertTrue(lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}), 4);
         Utility.assertTrue(lengthOfLIS(new int[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15}), 6);
+
+        int[] arr = {2, 5, 6, 7, 9, 10};
+        System.out.println(Arrays.binarySearch(arr, 1)+1);
     }
 }

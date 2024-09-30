@@ -1,5 +1,6 @@
 package string;
 
+// longest pallidromic substring
 public class LongestPalindromicSubstring {
 
     static String longestPalindrome(String S){
