@@ -9,24 +9,24 @@ public class lexiographicallyBiggerString {
 
         lexiographicallyBiggerString lb = new lexiographicallyBiggerString();
 
-        System.out.println(lb.getSpecialString("abcd") +" "+lb.getSpecialStringStack("abcd"));
-        System.out.println(lb.getSpecialString("aacd") +" "+lb.getSpecialStringStack("aacd"));
-        System.out.println(lb.getSpecialString("abbscd") +" "+lb.getSpecialStringStack("abbscd"));
-        System.out.println(lb.getSpecialString("aaaa") +" "+lb.getSpecialStringStack("aaaa"));
-        System.out.println(lb.getSpecialString("zzabb") +" "+lb.getSpecialStringStack("zzabb"));
-        System.out.println(lb.getSpecialString("abczz") +" "+lb.getSpecialStringStack("abczz"));
-        System.out.println(lb.getSpecialString("abcc") +" "+lb.getSpecialStringStack("abcc"));
-        System.out.println(lb.getSpecialString("abccss") +" "+lb.getSpecialStringStack("abccss"));
-        System.out.println(lb.getSpecialString("zyx") +" "+lb.getSpecialStringStack("zyx"));
+        System.out.println(lb.getSpecialStringStack("abcd"));
+        System.out.println(lb.getSpecialStringStack("aacd"));
+        System.out.println(lb.getSpecialStringStack("abbscd"));
+        System.out.println(lb.getSpecialStringStack("aaaa"));
+        System.out.println(lb.getSpecialStringStack("zzabb"));
+        System.out.println(lb.getSpecialStringStack("abczz"));
+        System.out.println(lb.getSpecialStringStack("abcc"));
+        System.out.println(lb.getSpecialStringStack("abccss"));
+        System.out.println(lb.getSpecialStringStack("zyx"));
 
-        System.out.println(lb.getSpecialString("abbd") +" "+lb.getSpecialStringStack("abbd"));
-        System.out.println(lb.getSpecialString("abccdeaaa") +" "+lb.getSpecialStringStack("abccdeaaa"));
+        System.out.println(lb.getSpecialStringStack("abbd"));
+        System.out.println(lb.getSpecialStringStack("abccdeaaa"));
 
-        System.out.println(lb.getSpecialString("zyxwvutstuvwxyz") +" "+lb.getSpecialStringStack("zyxwvutstuvwxyz"));
-        System.out.println(lb.getSpecialString("zyz") +" "+lb.getSpecialStringStack("zyz"));
-        System.out.println(lb.getSpecialString("zyxz") +" "+lb.getSpecialStringStack("zyxz"));
+        System.out.println(lb.getSpecialStringStack("zyxwvutstuvwxyz"));
+        System.out.println(lb.getSpecialStringStack("zyz"));
+        System.out.println(lb.getSpecialStringStack("zyxz"));
 
-        System.out.println(lb.getSpecialString("zyzyzyz") +" "+lb.getSpecialStringStack("zyzyzyz"));
+        System.out.println(lb.getSpecialStringStack("zyzyzyz"));
 
     }
 
