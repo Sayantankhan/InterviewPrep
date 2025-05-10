@@ -1,11 +1,11 @@
-package company.google;
+package arrays.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/fruit-into-baskets/description/
 public class FruitIntoBaskets {
-
+    // Fruit Into Baskets
     public int totalFruit(int[] fruits) {
         // treeindex -> count
         Map<Integer, Integer> map = new HashMap<>();
@@ -50,8 +50,51 @@ public class FruitIntoBaskets {
         return val;
     }
 
+    // O(n)
+    public int totalFruit2(int[] fruits) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        int ans = Integer.MIN_VALUE;
+
+        int start = 0;
+        int len = fruits.length;
+
+        int busket1 = -1;
+        int busket2 = -1;
+
+        for(int end = 0; end < len; end++) {
+            if(map.size() < 2) {
+                map.put(fruits[end], end);
+                if(busket1 == -1) busket1 = fruits[end];
+                else if(busket1 != fruits[end]) busket2 = fruits[end];
+            } else {
+                int index = map.getOrDefault(fruits[end], -1);
+                if(index == -1) {
+                    ans = Math.max(ans, end - start);
+
+                    int busket1_index = map.get(busket1);
+                    int busket2_index = map.get(busket2);
+
+                    if(busket1_index > busket2_index) {
+                        start = busket2_index + 1;
+                        map.remove(busket2);
+                        busket2 = fruits[end];
+                    } else {
+                        start = busket1_index + 1;
+                        map.remove(busket1);
+                        busket1 = fruits[end];
+                    }
+
+                }
+                map.put(fruits[end], end);
+            }
+        }
+
+        return Math.max(ans, (len - start));
+    }
+
     public static void main(String[] args) {
-        System.out.println(new FruitIntoBaskets().totalFruit(new int[] {1, 2, 1}));
+        System.out.println(new FruitIntoBaskets().totalFruit2(new int[] {3,3,3,1,2,1,1,2,3,3,4}));
         //System.out.println(new FruitIntoBaskets().totalFruit(new int[] {0, 1, 2, 2}));
         //System.out.println(new FruitIntoBaskets().totalFruit(new int[] {1,2,3,2,2}));
     }

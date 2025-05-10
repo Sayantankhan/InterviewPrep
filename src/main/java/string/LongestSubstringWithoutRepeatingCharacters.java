@@ -43,6 +43,36 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return Math.max(max, map.size());
     }
 
+
+    public int lengthOfLongestSubstring2(String s) {
+        Map<Character, Integer> chmap = new HashMap<>();
+
+        int start = 0;
+        int end = 0;
+        int len = s.length() - 1;
+
+        char[] el = s.toCharArray();
+        int ans = Integer.MIN_VALUE;
+
+        for(int i = 0; i <= len; i++) {
+            end = i;
+            int index = chmap.getOrDefault(el[end], -1);
+
+            if(index != -1) {
+                ans = Math.max(ans, chmap.size());
+                for(int j = start; j <= index; j++) {
+                    chmap.remove(el[j]);
+                }
+                start = index+1;
+            }
+            chmap.put(el[end], end);
+            end ++;
+        }
+
+        ans = Math.max(ans, chmap.size());
+        return ans;
+    }
+
     public static void main(String[] args) throws Exception {
         Utility.assertTrue(lengthOfLongestSubstring("abcabcbb"), 3);
         Utility.assertTrue(lengthOfLongestSubstring("bbbbb"), 1);
