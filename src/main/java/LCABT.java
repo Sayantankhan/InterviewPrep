@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class LCABT {
+    //Lowest Common Ancestor of a Binary III
     static class BinaryTreeNode {
 
         int data;
@@ -47,6 +48,32 @@ public class LCABT {
         }
 
         return null;
+    }
+
+    // o(h)
+    public BinaryTreeNode lca(BinaryTreeNode p, BinaryTreeNode q) {
+        List<BinaryTreeNode> pnode = new ArrayList<>();
+        List<BinaryTreeNode> qnode = new ArrayList<>();
+
+        findPathToRoot(p, pnode);
+        findPathToRoot(q, qnode);
+
+        int psize = pnode.size()-1;
+        int qsize = qnode.size()-1;
+
+        while(psize >= 0 && qsize >= 0 && pnode.get(psize) == qnode.get(qsize)) {
+            psize--;
+            qsize--;
+        }
+
+        return qnode.get(qsize+1);
+    }
+
+    void findPathToRoot(BinaryTreeNode x, List<BinaryTreeNode> nodes) {
+        nodes.add(x);
+        if(x.parent == null) return;
+
+        findPathToRoot(x.parent, nodes);
     }
 
     public static void main(String[] args) {
