@@ -2,7 +2,7 @@ package string;
 
 // longest pallidromic substring
 public class LongestPalindromicSubstring {
-
+    //LPSt
     static String longestPalindrome(String S){
         // code here
         // idea is expand and match

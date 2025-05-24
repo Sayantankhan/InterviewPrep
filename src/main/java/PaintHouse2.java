@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class PaintHouse2 {
 
     // DP - O(m.k)

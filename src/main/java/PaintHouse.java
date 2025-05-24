@@ -1,6 +1,34 @@
 import java.util.Arrays;
 
 public class PaintHouse {
+
+    //paint houses with k colours
+    public int minCostII(int[][] costs) {
+        // return minCostRec(costs, 0, -1);
+        int k = costs[0].length;
+        int[] dp = new int[k];
+
+        for(int i = 0; i < costs.length; i++) {
+            int[] currDp = new int[k];
+            for (int j = 0; j < k; j++) {
+                currDp[j] = costs[i][j] + findMin(dp, j);
+            }
+            dp = currDp;
+        }
+        return Arrays.stream(dp).min().getAsInt();
+    }
+
+    int findMin(int[] dp, int exclude) {
+        int smallest = Integer.MAX_VALUE;
+        for (int i = 0; i < dp.length; i++) {
+            if(i != exclude) {
+                smallest = Math.min(smallest, dp[i]);
+            }
+        }
+        return smallest;
+    }
+
+
     // min cost paint house - colour1, colour2, colour3
     // paint houses with 3 colours
 

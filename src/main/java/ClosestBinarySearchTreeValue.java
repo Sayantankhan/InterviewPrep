@@ -4,6 +4,7 @@ import java.util.*;
 
 public class ClosestBinarySearchTreeValue {
     // Closest Binary Search Tree Value II
+    // BST
 
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
         // in order traversal

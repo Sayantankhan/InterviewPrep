@@ -8,6 +8,26 @@ import java.util.List;
 
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 public class LowestCommonAncestorofABinaryTree {
+    // LCABT
+    // Another approach is - if we have to find LCA for two nodes who belongs to same side then which is closer to root will be the ans
+    // if both lies in diff side then root of both of them will be the ans.
+    public static TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null){
+            return null;
+        }
+        if(root == p || root == q){
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor1(root.left , p , q);
+        TreeNode right = lowestCommonAncestor1(root.right , p , q);
+
+        if(left == null) return right;
+        if(right == null) return left;
+        if(left != null && right != null){
+            return root;
+        }
+        return null;
+    }
 
     // where we allow a node to be a descendant of itself
     // One approach is find the path for both the node and check
@@ -45,25 +65,7 @@ public class LowestCommonAncestorofABinaryTree {
         temp.remove(temp.size()-1);
     }
 
-    // Another approach is - if we have to find LCA for two nodes who belongs to same side then which is closer to root will be the ans
-    // if both lies in diff side then root of both of them will be the ans.
-    public static TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == null){
-            return null;
-        }
-        if(root == p || root == q){
-            return root;
-        }
-        TreeNode left = lowestCommonAncestor1(root.left , p , q);
-        TreeNode right = lowestCommonAncestor1(root.right , p , q);
 
-        if(left == null) return right;
-        if(right == null) return left;
-        if(left != null && right != null){
-            return root;
-        }
-        return null;
-    }
 
     public static void main(String[] args) throws Exception {
         TreeNode root = Utility.generateBinartTreeFromArray(new Integer[]{3,5,1,6,2,0,8,null,null,7,4});

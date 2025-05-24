@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 // https://leetcode.com/problems/count-different-palindromic-subsequences/description/
 public class CountDifferentPalindromicSubsequences {
-
+    // count pallindrome Seq
     Predicate<StringBuilder> isPallindrome = (s) -> !s.toString().equals("") && s.toString().equals(s.reverse().toString());
 
     public int countPalindromicSubsequences(String s) {

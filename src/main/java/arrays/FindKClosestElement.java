@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 // https://leetcode.com/problems/find-k-closest-elements/submissions/1239165438/
 public class FindKClosestElement {
+    //Find K Closest Element
 
     public static List<Integer> findClosestElements(int[] arr, int k, int x) {
         int index;

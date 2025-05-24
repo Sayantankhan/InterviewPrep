@@ -38,4 +38,8 @@ public class MeetingRoom2 {
 
         return room;
     }
+
+    public static void main(String[] args) {
+        System.out.println(new MeetingRoom2().minMeetingRooms(new int[][] {{0, 30}, {5, 10}, {15, 20}, {30, 40}, {35, 38}, {36, 37}}));
+    }
 }

@@ -2,7 +2,7 @@ package company.google;
 
 // Longest Palindromic Subsequence
 public class LongestPalindromicSubsequence {
-
+    // LPSq
     public int longestPalindromeSubseq(String s) {
         StringBuilder sb = new StringBuilder(s);
         String temp = sb.reverse().toString();

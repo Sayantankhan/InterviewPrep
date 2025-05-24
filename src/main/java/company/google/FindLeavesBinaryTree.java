@@ -7,6 +7,26 @@ import java.util.*;
 //  Find Leaves of Binary Tree
 public class FindLeavesBinaryTree {
 
+    // make leaf as height 1 and add 1+ parent until finding root
+    // hashmap to store the val
+    public List<List<Integer>> findLeavesII(TreeNode root) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        List<List<Integer>> ans = new ArrayList<>();
+
+        findLeavesRec(root, map);
+
+        for(Map.Entry<Integer, List<Integer>> entry : map.entrySet()){
+            ans.add(entry.getValue());
+        }
+        return ans;
+    }
+
+    int findLeavesRec(TreeNode root, Map<Integer, List<Integer>> map) {
+        if(root == null) return 0;
+        int height = 1 + Math.max(findLeavesRec(root.left, map), findLeavesRec(root.right, map));
+        map.computeIfAbsent(height, k -> new ArrayList<Integer>()).add(root.val);
+        return height;
+    }
 
     public List<List<Integer>> findLeaves(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -14,9 +34,9 @@ public class FindLeavesBinaryTree {
         return ans;
     }
 
-    // returing height
+    // returing height - same concept just not storing in hash map
     private int findLeavesDFS(TreeNode root, List<List<Integer>> ans) {
-        if(root == null) return -1;
+        if(root == null) return 0;
 
         int left = findLeavesDFS(root.left, ans);
         int right = findLeavesDFS(root.right, ans);
