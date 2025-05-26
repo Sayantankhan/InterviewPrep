@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class CountIntervals {
-
+    // Count Integers in Intervals
     final TreeMap<Integer, Integer> map;
     int count = 0;
     public CountIntervals() {

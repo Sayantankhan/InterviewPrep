@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class MaximizeSubarraysAfterRemovingOneConflictingPair {
-
+    // Maximize Subarrays After Removing One Conflicting Pair
     // For an array of size n, total number of subarrays is: n*(n+1)/2
     // subarray means consicutive = {1. 2. 3} total  - 1 + 2 + 3 = 6
     public int maxSubarrays(int n, List<List<Integer>> conflictingPairs) {
