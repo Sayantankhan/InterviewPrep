@@ -1,5 +1,9 @@
 public class CanPlaceFlowers {
-
+    // Can Place Flowers
+    //
+    // theater/movie hall : Given a row of seats represented as an array, where 1 indicates an occupied seat and 0 indicates an empty seat,
+    // determine whether you can seat a given number of people under the condition that no one wants to sit next to another person.
+    //Implement a function that takes the seat arrangement and the number of people to be seated and returns whether it's possible to accommodate them.
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
         int count = 0;
         for(int i = 0; i < flowerbed.length; i++) {

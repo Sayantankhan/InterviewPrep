@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MaxConsecutiveOnes {
+    // Googles beauty score question
+    // Max Consecutive Ones after flipping k elements
 
     public int longestOnes(int[] nums, int k) {
         int len = nums.length;
