@@ -1,9 +1,8 @@
 import java.util.*;
 
 public class AllOne {
-    // need a datastructure for count of strings  and fetch min and max 0(1)
-    // Stack and DLL
 
+    // Given a stream of events with contentId and its popularity trend (+1/-1) we need to provide the most popular contentId at any
     static class Node{
         Node prev, next;
         String val;
@@ -96,7 +95,6 @@ public class AllOne {
             } else {
                 getPrevPos(e_node, head);
             }
-
         }
     }
 
@@ -108,21 +106,5 @@ public class AllOne {
     public String getMinKey() {
         if(head.next != tail) return head.next.val;
         else return "";
-    }
-
-    public static void main(String[] args) {
-        AllOne ao = new AllOne();
-        ao.inc("world");
-        ao.inc("hello");
-        ao.inc("leet");
-        ao.inc("hello");
-        ao.inc("leet");
-        ao.inc("leet");
-        ao.inc("leet");
-        ao.inc("hello");
-        ao.dec("leet");
-        ao.dec("leet");
-
-        System.out.println(ao.map);
     }
 }
